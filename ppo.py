@@ -140,11 +140,6 @@ try:
         writer.add_scalar("Reward", sum(rewards), i)
         if i % log == 0:
             print(f"{i}: Value Loss: {value_loss.item()} | Policy Loss: {policy_loss.item()} | Reward: {sum(rewards)}")
-            
-        if sum(rewards) > 150 and i > 1000:
-            env = gym.make(env_name, render_mode="human")
-            observation, info = env.reset()
-            log = 1
 
 except KeyboardInterrupt:
     env.close()
