@@ -112,7 +112,7 @@ try:
         done_tensor = torch.tensor(done2, dtype=torch.float32).unsqueeze(1)
         old_policy_tensor = torch.stack(old_policy2, dim=0)
         
-        # Run A2C    
+        # Run PPO 
         temporal_diff = rewards_tensor + (1-done_tensor) * GAMMA * value(next_states_tensor) - value(states_tensor)
         value_loss = temporal_diff.pow(2).mean()
         
